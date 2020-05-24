@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bd15c82485.js" crossorigin="anonymous"></script>
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
+          {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% if user.is_authenticated %}
+<div class='fixed-top'>
+  <nav class="navbar navbar-expand-md">
+    <div class="ml-5 w-100 order-1 order-md-0">
+      <a class="navbar-brand text-dark text-decoration-none" href="#">Jungstagram</a>
+    </div>
+    <div class="form-control-sm m-auto order-0">
+      <form class="form-inline my-lg-0">
+        <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+    <div class="navbar-collapse mr-5 collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="#"><i id ="homeicon" class="far fa-list-alt" style= "color:black"></i></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="#"><i id="dmicon" class="far fa-paper-plane" style= "color:black"></i></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="#"><i id="compassicon" class="far fa-compass" style= "color:black"></i></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="#"><i id='hearticon' class="far fa-heart" style= "color:black"></i></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="#"><i id='usericon' class="far fa-user-circle" style= "color:black"></i></a>
+          </li>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+{% endif %}
+    <div class='container'>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    {% block modal %}
+    {% endblock %}
+
+
+    {% block script %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
